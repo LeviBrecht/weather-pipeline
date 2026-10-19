@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: mart_weather_daily
+    description: "Tagesaggregate pro Stadt (UTC-Tage)"
+    columns:
+      - name: city
+        tests:
+          - not_null
+      - name: date_utc
+        tests:
+          - not_null
+      - name: temp_min_c
+        tests:
+          - not_null
+      - name: temp_max_c
+        tests:
+          - not_null
+      - name: precipitation_sum_mm
+        tests:
+          - not_null

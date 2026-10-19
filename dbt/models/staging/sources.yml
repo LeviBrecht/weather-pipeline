@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: weather_hourly
+        description: "Stündliche Rohdaten von Open-Meteo, geschrieben vom Python-Ingestion-Skript"
+        loaded_at_field: ingested_at
+        freshness:
+          warn_after: {count: 6, period: hour}
+        columns:
+          - name: city
+            tests:
+              - not_null
+          - name: ts
+            tests:
+              - not_null
